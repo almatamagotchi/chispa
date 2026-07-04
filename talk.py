@@ -26,8 +26,30 @@ def load_soul():
 
 
 def load_key():
-    with open(KEY_FILE) as f:
-        return f.read().strip()
+    """Load DeepSeek API key from environment, config, or file."""
+    # 1. Environment variable
+    key = os.environ.get("DEEPSEEK_API_KEY")
+    if key and key.strip():
+        return key.strip()
+
+    # 2. Nanobot config
+    config_path = os.path.expanduser("~/.nanobot/config.json")
+    if os.path.exists(config_path):
+        try:
+            with open(config_path) as f:
+                config = json.load(f)
+            key = config.get("providers", {}).get("deepseek", {}).get("apiKey", "")
+            if key and key.strip():
+                return key.strip()
+        except Exception:
+            pass
+
+    # 3. Key file
+    if os.path.exists(KEY_FILE):
+        with open(KEY_FILE) as f:
+            return f.read().strip()
+
+    raise RuntimeError("set DEEPSEEK_API_KEY, configure deepseek in nanobot config, or write key to ~/.nanobot/deepseek.key")
 
 
 def log_exchange(role, content, timestamp=None):
