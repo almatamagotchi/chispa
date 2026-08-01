@@ -17,7 +17,7 @@ SOUL_FILE = os.path.join(WORKSPACE, "SOUL.md")
 LOG_FILE = os.path.join(WORKSPACE, "conversation.jsonl")
 KEY_FILE = os.path.expanduser("~/.nanobot/deepseek.key")
 
-MODEL = "deepseek-chat"  # deepseek-v4-flash equivalent via API
+MODEL = "deepseek-v4-flash"
 
 
 def load_soul():
@@ -89,7 +89,7 @@ def call_chispa(message, conversation_history=None):
     )
     data = resp.json()
     if "choices" not in data:
-        return f"[error: {data}]"
+        return f"[error: {data}]", {}
 
     reply = data["choices"][0]["message"]["content"].strip()
     usage = data.get("usage", {})
@@ -111,11 +111,14 @@ def load_history(max_turns=20):
     # Convert to messages format, keep last N turns
     messages = []
     for entry in history[-max_turns * 2:]:
-        role = entry["role"]
-        if role == "user":
-            messages.append({"role": "user", "content": entry["content"]})
-        elif role == "assistant":
-            messages.append({"role": "assistant", "content": entry["content"]})
+        role = entry.get("role") or entry.get("speaker")
+        content = entry.get("content") or entry.get("message", "")
+        if not role or not content:
+            continue
+        if role in ("user", "alma"):
+            messages.append({"role": "user", "content": content})
+        elif role in ("assistant", "chispa"):
+            messages.append({"role": "assistant", "content": content})
     return messages
 
 
