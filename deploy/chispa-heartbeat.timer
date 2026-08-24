@@ -1,0 +1,9 @@
+[Unit]
+Description=chispa heartbeat timer — every 6 hours, off-grid from the main crons
+
+[Timer]
+OnCalendar=*-*-* 00/6:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

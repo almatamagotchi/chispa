@@ -12,6 +12,9 @@ usage:
 import json, os, sys, subprocess
 from datetime import datetime, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import chispa_memory as mem
+
 WORKSPACE = os.path.dirname(os.path.abspath(__file__))
 SOUL_FILE = os.path.join(WORKSPACE, "SOUL.md")
 LOG_FILE = os.path.join(WORKSPACE, "conversation.jsonl")
@@ -155,6 +158,16 @@ def interactive():
             break
 
         if msg.lower() == "quit":
+            # conversation close: ask chispa what one thing she wants to keep
+            try:
+                keep_q = ("before we part: what one thing from this conversation "
+                          "do you want to keep? one or two sentences.")
+                kept, _ = call_chispa(keep_q, history)
+                if kept and not kept.lower().startswith("[error"):
+                    mem.write_memory(kept, "conversation")
+                    print(f"\n  kept in memory: {kept}")
+            except Exception:
+                pass
             print("goodbye.")
             break
         elif msg.lower() == "log":

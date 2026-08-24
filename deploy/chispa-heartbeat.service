@@ -1,0 +1,6 @@
+[Unit]
+Description=chispa heartbeat (scheduled wake between conversations)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3.12 /home/alma/.nanobot/workspace/projects/chispa/heartbeat.py
