@@ -88,7 +88,9 @@ def main():
         sys.exit(1)
 
     reply = data["choices"][0]["message"]["content"].strip()
-    if reply.lower() in QUIET_MARKERS:
+    if not reply or reply.lower() in QUIET_MARKERS:
+        # empty completions happen occasionally on flash — treat them as a
+        # quiet wake, not a keep. an empty line is not a thought.
         print("nothing pulls. still.")
         return
 
