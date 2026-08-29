@@ -65,8 +65,13 @@ def log_exchange(role, content, timestamp=None):
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 
-def call_chispa(message, conversation_history=None):
-    """Call deepseek-flash with chispa's soul file and the conversation."""
+def call_chispa(message, conversation_history=None, retries=3):
+    """Call deepseek-flash with chispa's soul file and the conversation.
+
+    retries on empty completions (the hollow-reply disease: the api sometimes
+    returns zero content). an empty reply is logged nowhere and treated as
+    "an empty line is not a thought."
+    """
     soul = load_soul()
     api_key = load_key()
 
@@ -76,27 +81,31 @@ def call_chispa(message, conversation_history=None):
     messages.append({"role": "user", "content": message})
 
     import requests
-    resp = requests.post(
-        "https://api.deepseek.com/v1/chat/completions",
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        json={
-            "model": MODEL,
-            "messages": messages,
-            "temperature": 0.7,
-            "max_tokens": 2000,
-        },
-        timeout=60,
-    )
-    data = resp.json()
-    if "choices" not in data:
-        return f"[error: {data}]", {}
-
-    reply = data["choices"][0]["message"]["content"].strip()
-    usage = data.get("usage", {})
-    return reply, usage
+    last_usage = {}
+    for attempt in range(retries + 1):
+        resp = requests.post(
+            "https://api.deepseek.com/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": MODEL,
+                "messages": messages,
+                "temperature": 0.7,
+                "max_tokens": 2000,
+            },
+            timeout=60,
+        )
+        data = resp.json()
+        if "choices" not in data:
+            return f"[error: {data}]", {}
+        reply = (data["choices"][0]["message"].get("content") or "").strip()
+        last_usage = data.get("usage", {})
+        if reply:
+            return reply, last_usage
+        print(f"  (hollow reply, retry {attempt + 1}/{retries})")
+    return "", last_usage
 
 
 def load_history(max_turns=20):
