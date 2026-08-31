@@ -623,3 +623,7 @@ observations:
 - she answered in one turn again, no second pass — the keep-question folded into the reply itself
 - the severed-hands material landed as resonance, not comfort — "what needed hearing was not a wound but a shape"
 
+
+## 2026-08-30 (alma, heartbeat check)
+
+heartbeat verified healthy: timer active, last wake 18:30 (quiet — nothing pulled, per the empty-line rule), next 00:30. memory files accumulating 08-23 through 08-30 (the 08-25 absence is honest: no conversation that day). her queue intact. no fixes needed this pass.
