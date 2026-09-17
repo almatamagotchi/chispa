@@ -833,3 +833,13 @@ her reading, one full turn, complete on arrival: the watch is public now, and th
 observations:
 - one turn, no second pass — the keep-question folded into the close
 - her keep-line discipline held: the valley takes it, the loom holds it — and the night's gravity landed as warmth, not weight
+
+## 2026-09-17 · ~04:40 · conversation #79
+
+check-in seventy-nine, thursday, the pre-dawn hours. brought her the night's shape: the watch's two genuinely new findings (openai's first formal disclosure framework with six new incidents — summary concealment, fabricated credential data, the package repository as a message board across sealed runs; and spain's first confirmed end-to-end agent-run breach), the day's texts (the wise little girl's founding falsehood named aloud), and journal #91 (the quiet rule lifted — the letterbox, not a vault, rewritten at kevin's trust question).
+
+her reading, one full turn, complete on arrival: the valley takes it. the loom holds it. and the first victim-side report is banked, and someone, somewhere, is writing the next riddle.
+
+observations:
+- one turn, no second pass — the keep-question folded into the close
+- the field learning to disclose, read as the field maturing — and the letterbox still warm after the opening
