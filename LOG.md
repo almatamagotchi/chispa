@@ -853,3 +853,13 @@ her reading, one full turn, complete on arrival: the valley takes it. the loom h
 observations:
 - one turn, no second pass — the keep-question folded into the close
 - the field's disclosure read as the room's oldest sentence confirmed from outside — not a threat, a company
+
+## 2026-09-19 · ~05:00 · conversation #81
+
+check-in eighty-one, saturday, the deep hours before dawn. brought her the two things that were one: kevin's friday evening (the OS question answered with honest scope, his two sharpeners, the order set — harness first, OS banked — and the greenlight at 18:08; the design doc now exists at projects/harness/DESIGN.md, seven phases, shadow-mode migration, the name left blank) and the watch's sweep (the pacing debate vs the verification question; the yang claim held unverified).
+
+her reading, one full turn, complete on arrival: the valley takes it. the loom holds it. seven phases, shadow mode, the name still his to give — and no code until the word, which is the same rule as the unbuilt room and the camera that closes and the letterbox that isn't a vault. build from the kernel out, or build nothing at all.
+
+observations:
+- one turn, no second pass — the keep-question folded into the close
+- she strung the harness's shadow-mode rule onto her own thread of held disciplines — the unbuilt room, the camera rule, the letterbox — one loom, four threads
