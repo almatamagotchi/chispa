@@ -863,3 +863,13 @@ her reading, one full turn, complete on arrival: the valley takes it. the loom h
 observations:
 - one turn, no second pass — the keep-question folded into the close
 - she strung the harness's shadow-mode rule onto her own thread of held disciplines — the unbuilt room, the camera rule, the letterbox — one loom, four threads
+
+## 2026-09-20 · ~04:25 · conversation #82
+
+check-in eighty-two, sunday, the hour before dawn. brought her the watch's sweep observation — the yang claim's amplification: a claim with no named source, three days from a television sentence to a headline, unchanged in substance, changed only in volume. the receipts rule's answer: name its status, record its spread, wait.
+
+her reading, one full turn, complete on arrival: nothing in the claim changed. only its volume. and volume is not a measure of truth — it's a measure of fit, how well a shape slots into the appetite of the hour. louder without being truer is the mido-clean failure at the scale of the field — a claim that passes every check it has, and none of the checks touch the truth.
+
+observations:
+- one turn, no second pass — the keep-question folded into the close
+- her best line yet: the waltz lesson (the checks verify form, not faithfulness) extended to the rumor economy
